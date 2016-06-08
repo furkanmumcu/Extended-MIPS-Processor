@@ -17,7 +17,7 @@ sc: is like other stores, except that it is conditional, and doesn't store to me
 
 jm: this I-type instruction is a jump, to the address stored in the memory location.
 
-'''
+```
 "sc":
 		IM[PC]
 if (ATOMIC_TEST = = DM[RF[rs] + SignExt(Imm)])
@@ -44,4 +44,4 @@ RF[rt] <- DM[R[rs] + SignExt(Imm)]
 		DM[RF[rs]+SignExt(Imm16)]  RF[rt]
 		RF[rs] <- RF[rs]+4
 		PC <- PC + 4
-'''
+```
