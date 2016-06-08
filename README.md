@@ -41,7 +41,7 @@ RF[rt] <- DM[R[rs] + SignExt(Imm)]
 
 "sw+":
 		IM[PC]
-		DM[RF[rs]+SignExt(Imm16)]  RF[rt]
+		DM[RF[rs]+SignExt(Imm16)] <- RF[rt]
 		RF[rs] <- RF[rs]+4
 		PC <- PC + 4
 ```
