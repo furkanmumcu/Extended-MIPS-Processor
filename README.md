@@ -20,23 +20,19 @@ jm: this I-type instruction is a jump, to the address stored in the memory locat
 ```
 "sc":
 		IM[PC]
-if (ATOMIC_TEST = = DM[RF[rs] + SignExt(Imm)])
+		if (ATOMIC_TEST = = DM[RF[rs] + SignExt(Imm)])
 			DM[RF[rs] + SignExt(Imm)] <- RF[rt], 
 			RF[rt] <- 1
 		else 	
-RF[rt] <- 0
-		PC <- PC + 4
-
-		
+			RF[rt] <- 0
+			PC <- PC + 4
 		
 		
 "ll":
 		IM[PC]	
-RF[rt] <- DM[R[rs] + SignExt(Imm)]
+		RF[rt] <- DM[R[rs] + SignExt(Imm)]
 		ATOMIC_TEST <- DM[RF[rs] + SignExt(Imm)]
 		PC <- PC + 4
-
-		
 		
 
 "sw+":
@@ -44,4 +40,16 @@ RF[rt] <- DM[R[rs] + SignExt(Imm)]
 		DM[RF[rs]+SignExt(Imm16)] <- RF[rt]
 		RF[rs] <- RF[rs]+4
 		PC <- PC + 4
+		
+		
+"jm":
+		IM[PC]
+  	 	PC <- DM[RF[rs] + SignExt(immed16)]
+  	 	
+  	 	
+"subi":   	IM[PC]				  
+		RF[rt] <- RF[rs] - ZeroExt(immed) 	  	
+		PC <- PC + 4	
+  	 	
+
 ```
